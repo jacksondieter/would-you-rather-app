@@ -7,6 +7,7 @@ function Login() {
     const userslist = Object.keys(users)
     const [user, setUser] = useState('')
     const dispatch = useDispatch()
+
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(setAuthUser(user))
@@ -19,6 +20,7 @@ function Login() {
         <div>
             <form onSubmit={handleSubmit}>
                 <select id="users" name="users" onChange={handleSelection}>
+                    <option value=''> </option>
                     {userslist.map((key) => (
                         <option key={key} value={key}>{users[key].name}</option>
                     )

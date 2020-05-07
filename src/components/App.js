@@ -1,19 +1,23 @@
 import React,{ useEffect } from 'react';
 import { handleInitialData } from '../actions/shared'
-import {connect, useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux'
 import Login from './Login'
+import Questions from './Questions'
+import LeaderBoard from './Leaderboard'
 
 function App() {
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(handleInitialData())
-  }, [])
+      dispatch(handleInitialData())
+  },[])
   return (
     <div className="App">
       <header>
         React
       </header>
       <Login/>
+      <Questions/>
+      <LeaderBoard/>
     </div>
   );
 }
