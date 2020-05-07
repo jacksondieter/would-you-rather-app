@@ -8,6 +8,7 @@ export function handleInitialData () {
         return getInitialData()
             .then(({ users, questions }) => {
                 // dispatch end of loading
+                //console.log(users)
                 dispatch(receiveUsers(users))
                 dispatch(receiveQuestions(questions))
             })
