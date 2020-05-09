@@ -25,19 +25,12 @@ export default function useBoards(){
                                 return{
                                     id:key,
                                     name: users[key].name,
-                                    total: answers + questions,
+                                    score: answers + questions,
                                     answers,
                                     questions
                                     }
                                 })
                             .sort((a,b) => b.total - a.total)
-    const list = (key) => {
-                        return{
-                            id:key,
-                            author:users[questions[key].author].name,
-                            text: questions[key].optionOne.text}
-                        }
-    const listAnswered = answeredQuestions.map(list)
-    const listUnanswered =  unansweredQuestions.map(list)
-    return {listAnswered, listUnanswered, leaderBoardUsers}
+
+    return {leaderBoardUsers, answeredQuestions, unansweredQuestions}
 }
