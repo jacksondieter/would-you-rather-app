@@ -6,9 +6,7 @@ function QuestionPage({id}) {
     if (data.loading) return(
         <div>loading</div>
         )
-    const {author, answered, optionOne, optionTwo, totalVotes, handleSubmit} = data
-    console.log(answered,optionOne, optionTwo,author, totalVotes);
-
+    const {author, answered, optionOne, optionTwo, handleSubmit, handleSelection} = data
     return (
         <div>
             <h3>QuestionPage</h3>
@@ -19,20 +17,20 @@ function QuestionPage({id}) {
                     <div>
                     {optionOne.text}
                     </div>
-                    {`${optionOne.votes} out of ${totalVotes} votes`}
+                    {`${optionOne.votes} out of ${optionOne.total} votes`}
                 </div>
                 <div className={(optionTwo.answer?'Question-result':'')}>
                 <div>
                     {optionTwo.text}
                     </div>
-                    {`${optionTwo.votes} out of ${totalVotes} votes`}
+                    {`${optionTwo.votes} out of ${optionTwo.total} votes`}
                     </div>
                 </div>
             ):(
             <form onSubmit={handleSubmit}>
-                <input type="radio" id="optionOne" name="question" value="optionOne"/>
+                <input type="radio" id="optionOne" name="question" value="optionOne" onClick={handleSelection}/>
                 <label htmlFor="optionOne">{optionOne.text}</label>
-                <input type="radio" id="optionTwo" name="question" value="optionTwo"/>
+                <input type="radio" id="optionTwo" name="question" value="optionTwo" onClick={handleSelection}/>
                 <label htmlFor="optionTwo">{optionTwo.text}</label>
                 <input type="submit" value="Submit"/>
             </form>
