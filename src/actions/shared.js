@@ -1,6 +1,6 @@
-import { receiveUsers, answerUser } from './users';
-import { receiveQuestions, answerQuestion } from './questions';
-import { getInitialData, saveQuestionAnswer } from '../utils/api';
+import { receiveUsers, answerUser, addQuestionUser } from './users';
+import { receiveQuestions, answerQuestion, addQuestion } from './questions';
+import { getInitialData, saveQuestionAnswer, saveQuestion } from '../utils/api';
 
 export function handleInitialData () {
     return (dispatch) => {
@@ -23,6 +23,16 @@ export function handleAnswerQuestion(authUser, qid, answer) {
         return saveQuestionAnswer({authUser, qid, answer})
                 .catch((e) => {
                     console.console.warn('error with saveQuestionAnswer: ',e);
+                })
+    }
+}
+
+export function handleAddQuestion(optionOneText, optionTwoText, author) {
+    return (dispatch) => {
+        return saveQuestion({optionOneText, optionTwoText, author})
+                .then((formattedQuestion) => {
+                    dispatch(addQuestion(formattedQuestion))
+                    dispatch(addQuestionUser(formattedQuestion))
                 })
     }
 }
