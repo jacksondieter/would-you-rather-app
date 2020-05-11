@@ -16,7 +16,7 @@ export default function useQuestion(qid) {
     const dispatch = useDispatch()
     const [answer, setAnswer] = useState('')
     if(!users || !question || !authUser) return {loading:true}
-    
+
     const author = users[question.author].name
     const answered = Object.keys(users[authUser].answers).includes(qid)
     const optionValues = (option,option2) => {

@@ -13,7 +13,7 @@ function Question({id, answered}) {
     return (
         <div>
             <h3>{author}</h3>
-            <div>{text}</div>
+            <div>{`Would your rather ${text} or ...`}</div>
         </div>
     )
 }

@@ -3,7 +3,7 @@ import useBoards from './useBoards'
 import Question from './Question'
 
 
-function Questionboard() {
+function Dashboard() {
     const {answeredQuestions, unansweredQuestions} = useBoards()
     return (
         <div>
@@ -23,4 +23,4 @@ function Questionboard() {
     )
 }
 
-export default Questionboard
+export default Dashboard

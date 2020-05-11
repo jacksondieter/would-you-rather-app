@@ -4,7 +4,7 @@ import useQuestion from './useQuestion'
 function QuestionPage({id}) {
     const data = useQuestion(id)
     if (data.loading) return(
-        <div>loading</div>
+        <div>Loading</div>
         )
     const {author, answered, optionOne, optionTwo, handleSubmit, handleSelection} = data
     return (

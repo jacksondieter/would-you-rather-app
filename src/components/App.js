@@ -2,10 +2,11 @@ import React,{ useEffect, useCallback } from 'react';
 import { handleInitialData } from '../actions/shared'
 import {useDispatch} from 'react-redux'
 import Login from './Login'
-import Questionboard from './Questionboard'
+import Dashboard from './Dashboard'
 import LeaderBoard from './Leaderboard'
 import QuestionPage from './QuestionPage'
 import NewQuestion from './NewQuestion'
+import Nav from './Nav'
 
 function App() {
   const dispatch = useDispatch()
@@ -16,10 +17,11 @@ function App() {
   return (
     <div className="App">
       <header>
-        React
+        Would you rather...?
       </header>
+      <Nav/>
       <Login/>
-      <Questionboard/>
+      <Dashboard/>
       <QuestionPage id={'6ni6ok3ym7mf1p33lnez'}/>
       <LeaderBoard/>
       <NewQuestion />

@@ -17,7 +17,7 @@ function NewQuestion() {
     }
     return (
         <div>
-            <h2>Create a new questions</h2>
+            <h2>Create a new question</h2>
             <form onSubmit={handleSubmit}>
                 <div>Would you rather...</div>
                 <div>
