@@ -5,6 +5,7 @@ import Login from './Login'
 import Questionboard from './Questionboard'
 import LeaderBoard from './Leaderboard'
 import QuestionPage from './QuestionPage'
+import NewQuestion from './NewQuestion'
 
 function App() {
   const dispatch = useDispatch()
@@ -21,6 +22,7 @@ function App() {
       <Questionboard/>
       <QuestionPage id={'6ni6ok3ym7mf1p33lnez'}/>
       <LeaderBoard/>
+      <NewQuestion />
     </div>
   );
 }

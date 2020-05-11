@@ -56,3 +56,18 @@ code {
   border: solid green;
   background-color: lightgreen;
 }
+
+.bar-result-container {
+  width: 80%;
+  background-color: white;
+  margin-left: 10%;
+  border: blue;
+}
+
+.bar-result {
+  background-color: limegreen;
+  color: white;
+  text-align: right;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

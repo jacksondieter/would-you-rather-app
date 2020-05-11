@@ -17,11 +17,17 @@ function QuestionPage({id}) {
                     <div>
                     {optionOne.text}
                     </div>
+                    <div className="bar-result-container">
+                        <div style={{width:`${optionOne.percent}%`}} className="bar-result">{`${optionOne.percent}%`}</div>
+                    </div>
                     {`${optionOne.votes} out of ${optionOne.total} votes`}
                 </div>
                 <div className={(optionTwo.answer?'Question-result':'')}>
-                <div>
-                    {optionTwo.text}
+                    <div>
+                        {optionTwo.text}
+                    </div>
+                    <div className="bar-result-container">
+                        <div style={{width:`${optionTwo.percent}%`}} className="bar-result">{`${optionTwo.percent}%`}</div>
                     </div>
                     {`${optionTwo.votes} out of ${optionTwo.total} votes`}
                     </div>

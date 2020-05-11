@@ -19,18 +19,22 @@ export default function useQuestion(qid) {
     
     const author = users[question.author].name
     const answered = Object.keys(users[authUser].answers).includes(qid)
-    const optionOne =   {
-                            text: question.optionOne.text,
-                            votes:question.optionOne.votes.length,
-                            answer:question.optionOne.votes.includes(authUser),
-                            total: question.optionOne.votes.length + question.optionTwo.votes.length
-                        }
-    const optionTwo =   {
-                            text: question.optionTwo.text,
-                            votes:question.optionTwo.votes.length,
-                            answer:question.optionTwo.votes.includes(authUser),
-                            total: question.optionOne.votes.length + question.optionTwo.votes.length
-                        }
+    const optionValues = (option,option2) => {
+        const text =  option.text
+        const votes = option.votes.length
+        const answer = option.votes.includes(authUser)
+        const total =  votes + option2.votes.length
+        const percent = Number.parseInt(votes/total*100,10);
+        return {
+            text,
+            votes,
+            answer,
+            total,
+            percent
+        }
+    }
+    const optionOne = optionValues(question.optionOne, question.optionTwo)
+    const optionTwo = optionValues(question.optionTwo, question.optionOne)
 
     const handleSelection =  (e) => {
         setAnswer(e.target.value)
@@ -38,7 +42,10 @@ export default function useQuestion(qid) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(handleAnswerQuestion(authUser, qid, answer))
+        if(answer!==''){
+            dispatch(handleAnswerQuestion(authUser, qid, answer))
+        }
+        console.log(answer);
     }
     return {
             author,
