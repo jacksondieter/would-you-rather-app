@@ -9,13 +9,9 @@ export default function useBoards(){
                 };
     })
 
-    const answeredQuestions = !authUser
-                                ?[]
-                                :Object.keys(users[authUser].answers)
+    const answeredQuestions = Object.keys(users[authUser].answers)
                                 .sort((a,b) => questions[a].timestamp - questions[b].timestamp)
-    const unansweredQuestions = !authUser
-                                ?[]
-                                : Object.keys(questions)
+    const unansweredQuestions = Object.keys(questions)
                                 .sort((a,b) => questions[a].timestamp - questions[b].timestamp)
                                 .filter((key) => !answeredQuestions.includes(key))
     const leaderBoardUsers = Object.keys(users)

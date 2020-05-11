@@ -1,6 +1,7 @@
-import React,{ useEffect, useCallback } from 'react';
+import React,{ useEffect, useCallback, Fragment } from 'react';
+import {useDispatch, useSelector} from 'react-redux'
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
 import { handleInitialData } from '../actions/shared'
-import {useDispatch} from 'react-redux'
 import Login from './Login'
 import Dashboard from './Dashboard'
 import LeaderBoard from './Leaderboard'
@@ -10,22 +11,32 @@ import Nav from './Nav'
 
 function App() {
   const dispatch = useDispatch()
+  const authUser = useSelector(state => state.authUser)
   const stableDispatch = useCallback(dispatch,[])
   useEffect(() => {
       stableDispatch(handleInitialData())
   },[stableDispatch])
   return (
-    <div className="App">
-      <header>
-        Would you rather...?
-      </header>
-      <Nav/>
-      <Login/>
-      <Dashboard/>
-      <QuestionPage id={'6ni6ok3ym7mf1p33lnez'}/>
-      <LeaderBoard/>
-      <NewQuestion />
-    </div>
+    <Router>
+      <div className="App">
+        <header>
+          Would you rather...?
+        </header>
+        {!authUser
+        ?(<Login/>
+        ):(
+        <Fragment>
+          <Nav/>
+            <Switch>
+              <Route path='/' exact component={Dashboard}/>
+              <Route path='/new' component={NewQuestion}/>
+              <Route path='/leaderBoard' component={LeaderBoard}/>
+              <Route path='/question/:id' component={QuestionPage} />
+            </Switch>
+        </Fragment>
+        )}
+      </div>
+    </Router>
   );
 }
 

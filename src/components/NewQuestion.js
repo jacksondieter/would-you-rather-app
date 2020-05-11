@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { handleAddQuestion } from '../actions/shared'
+import { useHistory } from "react-router-dom";
 
 function NewQuestion() {
     const [optionOneText, setOptionOneText] = useState('')
     const [optionTwoText, setOptionTwoText] = useState('')
+    let history = useHistory();
     const author = useSelector(state => state.authUser)
     const dispatch = useDispatch()
     const handleSubmit = (e) => {
@@ -13,6 +15,7 @@ function NewQuestion() {
                     dispatch(handleAddQuestion(optionOneText,optionTwoText,author))
                     setOptionOneText('')
                     setOptionTwoText('')
+                    history.push("/")
                 }
     }
     return (

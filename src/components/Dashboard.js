@@ -12,8 +12,8 @@ function Dashboard() {
                 {answeredQuestions.map((key) => (
                 <Question key={key} id={key}/>
                 ))}
-                </div>
-                <div>
+            </div>
+            <div>
                 <h2>Unanswered Question</h2>
                 {unansweredQuestions.map((key) => (
                 <Question key={key} id={key}/>

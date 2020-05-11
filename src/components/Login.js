@@ -1,9 +1,11 @@
 import React, {useState} from 'react'
 import {useSelector, useDispatch } from 'react-redux'
+import { useHistory } from "react-router-dom";
 import {setAuthUser} from '../actions/authUser'
 
 function Login() {
     const users = useSelector(state => state.users)
+    let history = useHistory()
     const userslist = Object.keys(users)
     const [user, setUser] = useState('')
     const dispatch = useDispatch()
@@ -11,6 +13,7 @@ function Login() {
     const handleSubmit = (e) => {
         e.preventDefault()
         dispatch(setAuthUser(user))
+        history.push("/")
     }
     const handleSelection = (e) => {
         setUser(e.target.value)

@@ -1,5 +1,6 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
+import {Link} from 'react-router-dom'
 
 function Question({id, answered}) {
     const {author,text} = useSelector((state) => {
@@ -11,10 +12,12 @@ function Question({id, answered}) {
             }
     })
     return (
+        <Link to={`/question/${id}`}>
         <div>
             <h3>{author}</h3>
             <div>{`Would your rather ${text} or ...`}</div>
         </div>
+        </Link>
     )
 }
 
