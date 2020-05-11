@@ -25,12 +25,18 @@ export default function useQuestion(id) {
                             answer:question.optionTwo.votes.includes(authUser)
                         }
     const totalVotes = question.optionOne.votes.length + question.optionTwo.votes.length
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(e.target.value);
+    }
     return {
             author,
             optionOne,
             optionTwo,
             answered,
-            totalVotes
+            totalVotes,
+            handleSubmit
         }
     }
 
