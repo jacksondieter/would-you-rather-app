@@ -6,9 +6,28 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+:root {
+  --lighter-bg-color:  rgb(158, 250, 212);
+  --light-bg-color:  rgb(81, 219, 162);
+  --dark-bg-color: #3C9E75;
+  --darker-bg-color: rgb(40, 131, 108);
+}
 
 a {
-  text-emphasis: none;
+  text-decoration: none;
+  color: black;
+}
+
+li {
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+}
+
+button, input[type="submit"] {
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 .App {
@@ -19,28 +38,56 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  border-bottom: 2px solid var(--light-bg-color);
 }
 
-.nav ul {
+.tab-list, .nav-list {
   display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  text-decoration: none;
-}
-
-ul {
+  justify-content: center;
   padding-left: 0;
 }
 
-li {
-  list-style-type: none;
-  padding: 10px;
-  text-decoration: none;
+.tab-list-item, .nav-list-button,.nav-list-item {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  margin-bottom: -1px;
+  padding: 0.5rem 0.75rem;
+  padding: 16px 20px;
 }
 
-.Question-result {
-  border: solid green;
-  background-color: lightgreen;
+.tab-list-item, .nav-list-button{
+  cursor: pointer;
+}
+
+.board-container {
+  width: 80vw;
+  margin: 2vw auto;
+}
+
+.button:hover,
+.tab-list-item:hover,
+.nav-list-button:hover{
+  background-color: var(--lighter-bg-color);
+}
+
+.button,
+.tab-list-active,
+.nav-list-active,
+.tab-list-active:hover,
+.nav-list-active:hover {
+  background-color: var(--light-bg-color);
+  color: aliceblue;
+  border: solid #ccc;
+  border-width: 1px 1px 0 1px;
+  cursor:default;
+  padding: 16px 20px;
+}
+
+.question-result {
+  border: solid 2px var(--dark-bg-color);
+  background-color: var(--lighter-bg-color);
+  color: var(--darker-bg-color);
 }
 
 .bar-result-container {
@@ -51,27 +98,9 @@ li {
 }
 
 .bar-result {
-  background-color: limegreen;
+  background-color: var(--dark-bg-color);
   color: white;
   text-align: right;
   padding-top: 10px;
   padding-bottom: 10px;
-}
-
-.tab-list {
-  border-bottom: 1px solid #ccc;
-  padding-left: 0;
-}
-
-.tab-list-item {
-  display: inline-block;
-  list-style: none;
-  margin-bottom: -1px;
-  padding: 0.5rem 0.75rem;
-}
-
-.tab-list-active {
-  background-color: white;
-  border: solid #ccc;
-  border-width: 1px 1px 0 1px;
 }

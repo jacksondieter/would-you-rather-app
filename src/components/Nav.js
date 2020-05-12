@@ -13,30 +13,22 @@ function Nav() {
     }
     return (
         <nav className="nav">
-            <ul>
-                <li>
-                    <NavLink to="/">
-                        Home
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/add">
-                        New Question
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/leaderboard">
-                        Leaderboard
-                    </NavLink>
-                </li>
-            </ul>
-            <ul>
-                <li>{name}</li>
-                <li>{avatarURL}</li>
-                <li>
-                    <button onClick={logout}>Logout</button>
-                </li>
-            </ul>
+            <div className='nav-list' >
+                <NavLink to="/" className='nav-list-button' activeClassName='nav-list-active' exact>
+                    Home
+                </NavLink>
+                <NavLink to="/add"  className='nav-list-button' activeClassName='nav-list-active' exact>
+                    New Question
+                </NavLink>
+                <NavLink to="/leaderboard" className='nav-list-button' activeClassName='nav-list-active' exact>
+                    Leaderboard
+                </NavLink>
+            </div>
+            <div className='nav-list' >
+                <div className='nav-list-item' >{name}</div>
+                <div className='nav-list-item' >{avatarURL}</div>
+                <div className='nav-list-button' onClick={logout}>Logout</div>
+            </div>
         </nav>
     )
 }

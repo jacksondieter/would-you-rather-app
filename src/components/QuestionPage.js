@@ -14,11 +14,12 @@ function QuestionPage() {
         } = useQuestionPage()
     console.log(avatar);
     return (
-        <div>
-            <button onClick={handleClose}>Close</button>
-            <h3>QuestionPage</h3>
+        <div className='card-container'>
+            <div className="button" onClick={handleClose}>Close</div>
+            <div>
             <h4>{author}</h4>
             <div>{avatar}</div>
+            </div>
             {answered?(
                 <QuestionResult id={id}/>
             ):(

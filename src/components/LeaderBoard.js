@@ -2,16 +2,13 @@ import React from 'react'
 import useBoards from './useBoards'
 import UserCard from './UserCard'
 
-function Leaderboard() {
+export default function LeaderBoard() {
     const {leaderBoardUsers} = useBoards()
     return (
-        <div>
-            <h2>Leaderboard</h2>
+        <div className='board-container'>
             {leaderBoardUsers
             .map((user) => (<UserCard key={user.id} {...user}/>)
             )}
         </div>
     )
 }
-
-export default Leaderboard

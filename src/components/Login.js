@@ -29,7 +29,7 @@ function Login() {
                     )
                     )}
                 </select>
-                <input type="submit" value="Login"/>
+                <input type="submit" value="Login" className="button"/>
             </form>
         </div>
     )

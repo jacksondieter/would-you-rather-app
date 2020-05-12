@@ -17,7 +17,7 @@ export default function useQuestion(id) {
     const optionValues = (option,option2) => {
         const text =  option.text
         const votes = option.votes.length
-        const answer = option.votes.includes(authUser)
+        const answer = option.votes.includes(authUser)?'question-result':''
         const total =  votes + option2.votes.length
         const percent = Number.parseInt(votes/total*100,10);
         return {

@@ -15,7 +15,7 @@ function QuestionPoll({id}) {
                 <label htmlFor="optionOne">{optionOne.text}</label>
                 <input type="radio" id="optionTwo" name="question" value="optionTwo" onClick={handleSelection}/>
                 <label htmlFor="optionTwo">{optionTwo.text}</label>
-                <input type="submit" value="Submit"/>
+                <input type="submit" value="Submit" className="button"/>
             </form>
         </div>
     )

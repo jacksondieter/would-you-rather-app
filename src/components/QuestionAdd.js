@@ -38,7 +38,7 @@ export default function QuestionAdd() {
                     onChange={(e) => {setOptionTwoText(e.target.value)}}
                     value={optionTwoText}/>
                 </div>
-                <input type="submit" value="Submit"/>
+                <input type="submit" value="Submit" className='button'/>
             </form>
         </div>
     )
