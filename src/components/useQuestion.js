@@ -1,27 +1,19 @@
 import {useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import { useParams, useHistory} from 'react-router-dom'
 import {handleAnswerQuestion} from '../actions/shared'
 
-export default function useQuestion() {
-    const { id } = useParams()
-    let history = useHistory()
-    const {users, question, authUser} = useSelector((state) => {
-        const users = state.users
+export default function useQuestion(id) {
+    const {question, authUser} = useSelector((state) => {
         const question = state.questions[id]
         const authUser = state.authUser
         return{
-            users,
             question,
             authUser
         }
     })
     const dispatch = useDispatch()
     const [answer, setAnswer] = useState('')
-    if(!users || !question || !authUser) return {loading:true}
 
-    const author = users[question.author].name
-    const answered = Object.keys(users[authUser].answers).includes(id)
     const optionValues = (option,option2) => {
         const text =  option.text
         const votes = option.votes.length
@@ -51,17 +43,12 @@ export default function useQuestion() {
         console.log(answer);
     }
 
-    const handleClose = () => {
-        history.push("/");
-    }
+
     return {
-            author,
             optionOne,
             optionTwo,
-            answered,
             handleSubmit,
             handleSelection,
-            handleClose
         }
     }
 

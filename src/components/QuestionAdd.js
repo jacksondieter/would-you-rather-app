@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { handleAddQuestion } from '../actions/shared'
 import { useHistory } from "react-router-dom";
 
-function NewQuestion() {
+export default function QuestionAdd() {
     const [optionOneText, setOptionOneText] = useState('')
     const [optionTwoText, setOptionTwoText] = useState('')
     let history = useHistory();
@@ -43,5 +43,3 @@ function NewQuestion() {
         </div>
     )
 }
-
-export default NewQuestion

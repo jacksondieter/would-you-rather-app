@@ -6,7 +6,7 @@ import Login from './Login'
 import Dashboard from './Dashboard'
 import LeaderBoard from './Leaderboard'
 import QuestionPage from './QuestionPage'
-import NewQuestion from './NewQuestion'
+import QuestionAdd from './QuestionAdd'
 import Nav from './Nav'
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
           <Nav/>
             <Switch>
               <Route path='/' exact component={Dashboard}/>
-              <Route path='/new' component={NewQuestion}/>
+              <Route path='/add' component={QuestionAdd}/>
               <Route path='/leaderBoard' component={LeaderBoard}/>
               <Route path='/question/:id' component={QuestionPage} />
             </Switch>

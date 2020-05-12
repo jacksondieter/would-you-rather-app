@@ -1,14 +1,13 @@
 import React from 'react'
 
-function User({name,answers,score,questions}) {
+export default function UserCard({name, answers, score, questions, avatar}) {
     return (
         <div>
             <h3>{name}</h3>
+            <div>{avatar}</div>
             <div>Answers : {answers}</div>
             <div>Questions : {questions}</div>
             <div>Score : {score}</div>
         </div>
     )
 }
-
-export default User

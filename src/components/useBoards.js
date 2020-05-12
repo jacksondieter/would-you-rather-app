@@ -8,12 +8,12 @@ export default function useBoards(){
                 authUser:state.authUser
                 };
     })
-
     const answeredQuestions = Object.keys(users[authUser].answers)
                                 .sort((a,b) => questions[a].timestamp - questions[b].timestamp)
     const unansweredQuestions = Object.keys(questions)
-                                .sort((a,b) => questions[a].timestamp - questions[b].timestamp)
                                 .filter((key) => !answeredQuestions.includes(key))
+                                .sort((a,b) => questions[a].timestamp - questions[b].timestamp)
+
     const leaderBoardUsers = Object.keys(users)
                             .map((key) => {
                                 const answers =  Object.keys(users[key].answers).length
@@ -21,12 +21,13 @@ export default function useBoards(){
                                 return{
                                     id:key,
                                     name: users[key].name,
+                                    avatar:users[key].avatarURL,
                                     score: answers + questions,
                                     answers,
                                     questions
                                     }
                                 })
-                            .sort((a,b) => b.total - a.total)
+                            .sort((a,b) => b.score - a.score)
 
     return {leaderBoardUsers, answeredQuestions, unansweredQuestions}
 }

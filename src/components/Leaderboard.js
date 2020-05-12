@@ -1,6 +1,6 @@
 import React from 'react'
 import useBoards from './useBoards'
-import User from './User'
+import UserCard from './UserCard'
 
 function Leaderboard() {
     const {leaderBoardUsers} = useBoards()
@@ -8,7 +8,7 @@ function Leaderboard() {
         <div>
             <h2>Leaderboard</h2>
             {leaderBoardUsers
-            .map((user) => (<User key={user.id} {...user}/>)
+            .map((user) => (<UserCard key={user.id} {...user}/>)
             )}
         </div>
     )
