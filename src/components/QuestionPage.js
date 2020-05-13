@@ -13,7 +13,6 @@ function QuestionPage() {
             answered,
             handleClose
         } = useQuestionPage()
-    console.log(avatar);
     return (
         <div className='card-container'>
             <div className="button close-btn" onClick={handleClose}>X</div>

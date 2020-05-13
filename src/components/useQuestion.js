@@ -40,7 +40,6 @@ export default function useQuestion(id) {
         if(answer!==''){
             dispatch(handleAnswerQuestion(authUser, id, answer))
         }
-        console.log(answer);
     }
 
 

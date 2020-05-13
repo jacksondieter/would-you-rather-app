@@ -4,16 +4,21 @@ import { useParams, useHistory} from 'react-router-dom'
 export default function useQuestionPage() {
     const { id } = useParams()
     let history = useHistory()
-    const {users, question, authUser} = useSelector((state) => {
+    const {users, questions, authUser} = useSelector((state) => {
         const users = state.users
-        const question = state.questions[id]
+        const questions = state.questions
         const authUser = state.authUser
         return{
             users,
-            question,
+            questions,
             authUser
         }
     })
+
+    const question = questions[id]
+    if(!question){
+        history.push('/page404')
+    }
 
     const answered = Object.keys(users[authUser].answers).includes(id)
 

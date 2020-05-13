@@ -27,7 +27,7 @@ function Nav() {
             <div className='nav-list' >
                 <div className='nav-list-item' >
                     {name}
-                    <img src={avatar} alt="Avatar" class="avatar"/>
+                    <img src={avatar} alt="Avatar" className="avatar"/>
                 </div>
                 <div className='nav-list-button' onClick={logout}>Logout</div>
             </div>

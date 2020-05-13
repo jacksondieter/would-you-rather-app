@@ -8,6 +8,7 @@ import LeaderBoard from './LeaderBoard'
 import QuestionPage from './QuestionPage'
 import QuestionAdd from './QuestionAdd'
 import Nav from './Nav'
+import Page404 from './Page404';
 
 function App() {
   const dispatch = useDispatch()
@@ -31,7 +32,8 @@ function App() {
               <Route path='/' exact component={Dashboard}/>
               <Route path='/add' component={QuestionAdd}/>
               <Route path='/leaderBoard' component={LeaderBoard}/>
-              <Route path='/question/:id' component={QuestionPage} />
+              <Route path='/question/:id' component={QuestionPage}/>
+              <Route path='/page404' exact component={Page404}/>
             </Switch>
         </Fragment>
         )}
