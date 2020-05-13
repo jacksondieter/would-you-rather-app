@@ -7,21 +7,25 @@ function QuestionResult({id}) {
         optionTwo
     } = useQuestion(id)
     return (
-        <div>
+        <div className="card-right">
             <div className={optionOne.answer}>
-                        <div>{optionOne.text}</div>
-                        <div className="bar-result-container">
-                            <div style={{width:`${optionOne.percent}%`}} className="bar-result">{`${optionOne.percent}%`}</div>
-                        </div>
-                        {`${optionOne.votes} out of ${optionOne.total} votes`}
-                    </div>
-                    <div className={optionTwo.answer}>
-                        <div>{optionTwo.text}</div>
-                        <div className="bar-result-container">
-                            <div style={{width:`${optionTwo.percent}%`}} className="bar-result">{`${optionTwo.percent}%`}</div>
-                        </div>
-                        {`${optionTwo.votes} out of ${optionTwo.total} votes`}
-                    </div>
+                <div className="question-result-element">{optionOne.text}</div>
+                <div className="bar-result-container">
+                    <div style={{width:`${optionOne.percent}%`}} className="bar-result">{`${optionOne.percent}%`}</div>
+                </div>
+                <div className="question-result-element">
+                {`${optionOne.votes} out of ${optionOne.total} votes`}
+                </div>
+            </div>
+            <div className={optionTwo.answer}>
+                <div className="question-result-element">{optionTwo.text}</div>
+                <div className="bar-result-container ">
+                    <div style={{width:`${optionTwo.percent}%`}} className="bar-result">{`${optionTwo.percent}%`}</div>
+                </div>
+                <div className="question-result-element">
+                {`${optionTwo.votes} out of ${optionTwo.total} votes`}
+                </div>
+            </div>
         </div>
     )
 }

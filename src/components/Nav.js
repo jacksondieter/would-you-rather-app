@@ -6,7 +6,7 @@ import {setAuthUser} from '../actions/authUser'
 function Nav() {
     const dispatch = useDispatch()
     let history = useHistory()
-    const {name, avatarURL} = useSelector(state => state.users[state.authUser])
+    const {name, avatarURL: avatar} = useSelector(state => state.users[state.authUser])
     const logout = () => {
         dispatch(setAuthUser(null))
         history.push("/")
@@ -25,8 +25,10 @@ function Nav() {
                 </NavLink>
             </div>
             <div className='nav-list' >
-                <div className='nav-list-item' >{name}</div>
-                <div className='nav-list-item' >{avatarURL}</div>
+                <div className='nav-list-item' >
+                    {name}
+                    <img src={avatar} alt="Avatar" class="avatar"/>
+                </div>
                 <div className='nav-list-button' onClick={logout}>Logout</div>
             </div>
         </nav>

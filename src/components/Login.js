@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {useSelector, useDispatch } from 'react-redux'
 import { useHistory } from "react-router-dom";
+import logo from '../logo.svg';
 import {setAuthUser} from '../actions/authUser'
 
 function Login() {
@@ -21,7 +22,11 @@ function Login() {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="dropdown-container">
+                <div className="login">
+                    <img src={logo} className="logo" alt="logo" />
+                    <h2 className="title">Sign in</h2>
+                </div>
                 <select id="users" name="users" onChange={handleSelection}>
                     <option value=''> </option>
                     {userslist.map((key) => (
@@ -29,7 +34,7 @@ function Login() {
                     )
                     )}
                 </select>
-                <input type="submit" value="Login" className="button"/>
+                <input type="submit" value="Login" className="button login-btn"/>
             </form>
         </div>
     )

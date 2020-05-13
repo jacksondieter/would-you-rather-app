@@ -20,7 +20,7 @@ export default function useBoards(){
                                 const questions = users[key].questions.length
                                 return{
                                     id:key,
-                                    name: users[key].name,
+                                    author: users[key].name,
                                     avatar:users[key].avatarURL,
                                     score: answers + questions,
                                     answers,

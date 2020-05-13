@@ -1,6 +1,7 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
 import {Link} from 'react-router-dom'
+import UserCard from './UserCard'
 
 export default function QuestionCard({id}) {
     const {author,text,avatar} = useSelector((state) => {
@@ -14,10 +15,11 @@ export default function QuestionCard({id}) {
     })
     return (
         <Link to={`/question/${id}`}>
-        <div>
-            <h3>{author}</h3>
-            <div>{avatar}</div>
-            <div>{`Would your rather ${text} or ...`}</div>
+        <div className="card-box">
+            <UserCard author = {author} avatar={avatar}/>
+            <div className="card-left">
+                <div className="card-element">{`Would your rather ${text} or ...`}</div>
+            </div>
         </div>
         </Link>
     )

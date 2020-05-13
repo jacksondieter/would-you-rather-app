@@ -20,25 +20,27 @@ export default function QuestionAdd() {
     }
     return (
         <div>
-            <h2>Create a new question</h2>
-            <form onSubmit={handleSubmit}>
-                <div>Would you rather...</div>
+            <form onSubmit={handleSubmit} className="card-container">
+                <h2>Create a new question</h2>
+                <h3>Would you rather...</h3>
                 <div>
                 <input
                     type="text"
                     name="optionOne"
                     id="optionOne"
                     onChange={(e) => {setOptionOneText(e.target.value)}}
-                    value={optionOneText}/>
-                <div>OR</div>
+                    value={optionOneText}
+                    className="option-input"/>
+                <h3>OR</h3>
                 <input
                     type="text"
                     name="optionTwo"
                     id="optionTwo"
                     onChange={(e) => {setOptionTwoText(e.target.value)}}
-                    value={optionTwoText}/>
+                    value={optionTwoText}
+                    className="option-input"/>
                 </div>
-                <input type="submit" value="Submit" className='button'/>
+                <input type="submit" value="Submit" className='button submit-btn'/>
             </form>
         </div>
     )

@@ -1,13 +1,10 @@
 import React from 'react'
 
-export default function UserCard({name, answers, score, questions, avatar}) {
+export default function UserCard({author, avatar}) {
     return (
-        <div>
-            <h3>{name}</h3>
-            <div>{avatar}</div>
-            <div>Answers : {answers}</div>
-            <div>Questions : {questions}</div>
-            <div>Score : {score}</div>
+        <div className="card-right">
+            <div className="card-element"><img src={avatar} alt="Avatar" class="author"/></div>
+            <h3 className="card-element">{author}</h3>
         </div>
     )
 }
