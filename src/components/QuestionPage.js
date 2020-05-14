@@ -1,4 +1,5 @@
 import React from 'react'
+import {Redirect} from 'react-router-dom'
 import useQuestionPage from './useQuestionPage'
 import QuestionResult from './QuestionResult'
 import QuestionPoll from './QuestionPoll'
@@ -6,13 +7,17 @@ import UserCard from './UserCard'
 
 
 function QuestionPage() {
+    const data = useQuestionPage()
+    if (data.status){
+        return (<Redirect to="/page404" />)
+    }
     const {
             id,
             author,
             avatar,
             answered,
             handleClose
-        } = useQuestionPage()
+        } = data
     return (
         <div className='card-container'>
             <div className="button close-btn" onClick={handleClose}>X</div>

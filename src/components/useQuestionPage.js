@@ -17,7 +17,7 @@ export default function useQuestionPage() {
 
     const question = questions[id]
     if(!question){
-        history.push('/page404')
+        return {status:'404'};
     }
 
     const answered = Object.keys(users[authUser].answers).includes(id)
@@ -36,4 +36,3 @@ export default function useQuestionPage() {
             handleClose
         }
     }
-

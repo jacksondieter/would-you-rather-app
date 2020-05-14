@@ -33,7 +33,7 @@ function App() {
               <Route path='/add' component={QuestionAdd}/>
               <Route path='/leaderBoard' component={LeaderBoard}/>
               <Route path='/question/:id' component={QuestionPage}/>
-              <Route path='/page404' exact component={Page404}/>
+              <Route component={Page404}/>
             </Switch>
         </Fragment>
         )}

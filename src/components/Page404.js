@@ -8,7 +8,7 @@ export default function Page404() {
     }
     return (
         <div>
-            <h2>That poll does not exist</h2>
+            <h2>That page does not exist</h2>
             <div className="close-btn" onClick={handleClose}>Close</div>
         </div>
     )
