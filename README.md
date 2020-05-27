@@ -11,7 +11,7 @@ This is a single page web application that allows the user to  answer questions,
 
 ### Getting started
 Open the terminal and run following command:
-### `cd myreactmap`
+### `cd would-you-rather-app`
 ### `npm install`
 ### `npm start`
 
