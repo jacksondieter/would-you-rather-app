@@ -1,5 +1,5 @@
 import React from 'react'
-import useQuestion from './useQuestion'
+import useQuestion from '../hooks/useQuestion'
 
 function QuestionPoll({id}) {
     const {

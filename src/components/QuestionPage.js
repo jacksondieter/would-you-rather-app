@@ -1,6 +1,6 @@
 import React from 'react'
 import {Redirect} from 'react-router-dom'
-import useQuestionPage from './useQuestionPage'
+import useQuestionPage from '../hooks/useQuestionPage'
 import QuestionResult from './QuestionResult'
 import QuestionPoll from './QuestionPoll'
 import UserCard from './UserCard'

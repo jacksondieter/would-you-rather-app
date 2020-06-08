@@ -1,9 +1,14 @@
 import React from 'react'
-import useBoards from './useBoards'
+import {useSelector} from 'react-redux'
+import {getLeaderBoardUsers} from '../selectors'
 import UserBoardCard from './UserBoardCard'
 
 export default function LeaderBoard() {
-    const {leaderBoardUsers} = useBoards()
+    const {leaderBoardUsers} = useSelector((state) => {
+        return {
+                leaderBoardUsers: getLeaderBoardUsers(state)
+                };
+    })
     return (
         <div className='board-container'>
             {leaderBoardUsers
